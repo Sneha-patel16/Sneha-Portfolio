@@ -1,83 +1,85 @@
 import profile from "../assets/profile.jpg";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+import { FaDownload, FaArrowRight } from "react-icons/fa";
+
 function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="min-h-[86vh] flex items-center px-6 pt-20 pb-6">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-center">
 
-        {/* Left Content */}
-
+        {/* Left */}
         <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <p className="text-blue-400 font-semibold mb-3">
-            Hello, I'm
-          </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-sm font-semibold mb-5">
+            <span className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse"></span>
+            Open to Data Science • AI/ML • Analytics Roles
+          </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
-            Sneha Patel
+          <h1 className="text-4xl md:text-6xl font-black leading-[1.08] mb-4">
+            Hi, I’m{" "}
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+              Sneha Patel
+            </span>
           </h1>
 
-          <h2 className="text-xl md:text-2xl text-slate-300 mb-6">
-            <TypeAnimation
-              sequence={[
-                "Data Science Undergraduate",
-                1500,
-                "AI/ML Enthusiast",
-                1500,
-                "Data Analytics Practitioner",
-                1500,
-                "Aspiring Data Scientist",
-                1500,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+            AI/ML Developer | Data Analyst | Data Science Undergraduate
           </h2>
 
-          <p className="text-slate-400 leading-relaxed mb-8">
-            Building intelligent solutions through Data Science,
-            AI, and Analytics to solve real-world problems
-            and drive meaningful insights.
+          <p className="text-slate-300 text-base md:text-lg leading-7 max-w-2xl mb-6">
+            I build practical AI, machine learning, and data analytics projects
+            using Python, SQL, Power BI, and modern tools to solve real-world
+            problems through intelligent, data-driven solutions.
           </p>
 
           <div className="flex flex-wrap gap-4">
-
             <a
               href="#projects"
-              className="bg-blue-500 px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition duration-300"
+              className="px-6 py-3 bg-cyan-400 text-slate-950 rounded-xl font-bold hover:bg-cyan-300 transition inline-flex items-center gap-2"
             >
               View Projects
+              <FaArrowRight />
             </a>
 
             <a
               href="/resume.pdf"
               target="_blank"
-              className="border border-slate-600 px-6 py-3 rounded-lg font-medium hover:border-blue-400 transition duration-300"
+              className="px-6 py-3 border border-slate-600 rounded-xl font-bold hover:border-cyan-400 transition inline-flex items-center gap-2"
             >
-              Download Resume
+              <FaDownload />
+              Resume
             </a>
-
           </div>
         </motion.div>
 
-        {/* Right Image */}
-
+        {/* Right */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center"
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="flex justify-center lg:justify-end"
         >
-          <img
-            src={profile}
-            alt="Sneha Patel"
-            className="w-80 h-80 object-cover rounded-full border-4 border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.5)] hover:scale-105 transition duration-500"
-          />
+          <div className="relative w-[285px] md:w-[340px]">
+            <div className="absolute -inset-4 bg-cyan-400/20 blur-3xl rounded-full"></div>
+
+            <div className="relative rounded-[2rem] overflow-hidden border border-cyan-400/40 bg-slate-900/70 shadow-[0_0_55px_rgba(34,211,238,0.25)]">
+              <img
+                src={profile}
+                alt="Sneha Patel"
+                className="w-full h-[335px] md:h-[395px] object-cover"
+              />
+            </div>
+
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[240px] bg-slate-950/95 border border-cyan-400/30 rounded-2xl py-3 text-center shadow-xl">
+              <p className="text-xs text-slate-400">Currently Building</p>
+              <p className="text-cyan-300 font-bold text-sm">
+                AI + Data Science Projects
+              </p>
+            </div>
+          </div>
         </motion.div>
 
       </div>

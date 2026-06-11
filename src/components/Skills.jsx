@@ -1,60 +1,121 @@
 import SectionWrapper from "./SectionWrapper";
-import { FaPython, FaGithub } from "react-icons/fa";
-import { TbBrain, TbChartBar } from "react-icons/tb";
+import { motion } from "framer-motion";
+import {
+  FaPython,
+  FaDatabase,
+  FaCloud,
+  FaCode,
+  FaBrain,
+} from "react-icons/fa";
+
+const skillGroups = [
+  {
+    icon: <FaBrain />,
+    title: "AI & Machine Learning",
+    skills: ["Machine Learning", "Deep Learning", "NLP", "BERT", "Scikit-Learn"],
+  },
+  {
+    icon: <FaPython />,
+    title: "Programming",
+    skills: ["Python", "NumPy", "Pandas", "OOP", "Data Structures"],
+  },
+  {
+    icon: <FaDatabase />,
+    title: "Database",
+    skills: ["SQL", "MySQL", "Data Modeling", "Query Optimization"],
+  },
+  {
+    icon: <FaCloud />,
+    title: "Cloud & Platforms",
+    skills: ["Google Cloud", "Oracle Cloud", "GitHub", "Vercel"],
+  },
+  {
+    icon: <FaCode />,
+    title: "Analytics & BI",
+    skills: ["Power BI", "Excel", "EDA", "Visualization", "Statistics"],
+  },
+  {
+    icon: <FaCode />,
+    title: "Development",
+    skills: ["React", "Tailwind", "Streamlit", "API Integration"],
+  },
+];
 
 function Skills() {
-  const skillGroups = [
-    {
-      title: "Programming & Databases",
-      icon: <FaPython />,
-      skills: ["Python", "SQL", "Data Structures", "Algorithms"],
-    },
-    {
-      title: "Data Analysis & Visualization",
-      icon: <TbChartBar />,
-      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "Excel"],
-    },
-    {
-      title: "Machine Learning & AI",
-      icon: <TbBrain />,
-      skills: ["Machine Learning", "Deep Learning Basics", "NLP", "Data Preprocessing"],
-    },
-    {
-      title: "Tools & Platforms",
-      icon: <FaGithub />,
-      skills: ["GitHub", "Streamlit", "Jupyter Notebook", "Google Cloud", "Oracle Cloud"],
-    },
-  ];
-
   return (
     <SectionWrapper>
-      <section id="skills" className="py-24 px-6 max-w-6xl mx-auto">
-        <p className="text-blue-400 text-center font-semibold mb-3">
-          What I Work With
+      <section
+        id="skills"
+        className="py-24 px-6 max-w-7xl mx-auto"
+      >
+        <h2 className="text-center text-5xl font-extrabold mb-4">
+          Technical{" "}
+          <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+            Arsenal
+          </span>
+        </h2>
+
+        <p className="text-center text-slate-400 max-w-2xl mx-auto mb-14">
+          Technologies and tools I use to build intelligent AI,
+          analytics, and data-driven solutions.
         </p>
 
-        <h2 className="section-title blue-gradient">Technical Skills</h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillGroups.map((group, index) => (
-            <div key={index} className="glow-card rounded-2xl p-7 hover:-translate-y-2 transition duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="text-3xl text-blue-400 bg-slate-800 p-3 rounded-xl">
-                  {group.icon}
-                </div>
+            <motion.div
+              key={index}
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              transition={{ duration: 0.2 }}
+              className="relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-slate-900/70 backdrop-blur-lg p-7 shadow-[0_0_30px_rgba(34,211,238,0.15)]"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl"></div>
 
-                <h3 className="text-2xl font-semibold">{group.title}</h3>
+              <div className="text-cyan-300 text-4xl mb-5">
+                {group.icon}
               </div>
+
+              <h3 className="text-xl font-bold mb-5">
+                {group.title}
+              </h3>
 
               <div className="flex flex-wrap gap-3">
                 {group.skills.map((skill, idx) => (
-                  <span key={idx} className="px-4 py-2 bg-slate-800/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:text-blue-400 hover:border-blue-500 transition">
+                  <span
+                    key={idx}
+                    className="px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-200 text-sm"
+                  >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
+        </div>
+
+        {/* Bottom Highlight */}
+        <div className="mt-16 grid md:grid-cols-4 gap-6">
+          <div className="glow-card rounded-2xl p-6 text-center">
+            <h3 className="text-4xl font-bold text-cyan-300">15+</h3>
+            <p className="text-slate-300">Technologies</p>
+          </div>
+
+          <div className="glow-card rounded-2xl p-6 text-center">
+            <h3 className="text-4xl font-bold text-cyan-300">10+</h3>
+            <p className="text-slate-300">Projects</p>
+          </div>
+
+          <div className="glow-card rounded-2xl p-6 text-center">
+            <h3 className="text-4xl font-bold text-cyan-300">1</h3>
+            <p className="text-slate-300">Internship</p>
+          </div>
+
+          <div className="glow-card rounded-2xl p-6 text-center">
+            <h3 className="text-4xl font-bold text-cyan-300">15+</h3>
+            <p className="text-slate-300">Certificates</p>
+          </div>
         </div>
       </section>
     </SectionWrapper>
