@@ -4,7 +4,6 @@ import Stats from "./components/Stats";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Research from "./components/Research";
 import Experience from "./components/Experience";
 import CertificationsAchievements from "./components/CertificationsAchievements";
 import CodingJourney from "./components/CodingJourney";
@@ -29,7 +28,6 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Research />
       <Experience />
       <CertificationsAchievements />
       <CodingJourney />

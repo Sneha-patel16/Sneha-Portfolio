@@ -1,122 +1,197 @@
 import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
+
 import {
-  FaPython,
   FaDatabase,
-  FaCloud,
-  FaCode,
   FaBrain,
+  FaChartBar,
 } from "react-icons/fa";
 
-const skillGroups = [
-  {
-    icon: <FaBrain />,
-    title: "AI & Machine Learning",
-    skills: ["Machine Learning", "Deep Learning", "NLP", "BERT", "Scikit-Learn"],
-  },
-  {
-    icon: <FaPython />,
-    title: "Programming",
-    skills: ["Python", "NumPy", "Pandas", "OOP", "Data Structures"],
-  },
-  {
-    icon: <FaDatabase />,
-    title: "Database",
-    skills: ["SQL", "MySQL", "Data Modeling", "Query Optimization"],
-  },
-  {
-    icon: <FaCloud />,
-    title: "Cloud & Platforms",
-    skills: ["Google Cloud", "Oracle Cloud", "GitHub", "Vercel"],
-  },
-  {
-    icon: <FaCode />,
-    title: "Analytics & BI",
-    skills: ["Power BI", "Excel", "EDA", "Visualization", "Statistics"],
-  },
-  {
-    icon: <FaCode />,
-    title: "Development",
-    skills: ["React", "Tailwind", "Streamlit", "API Integration"],
-  },
-];
+import {
+  SiPython,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiStreamlit,
+  SiTensorflow,
+} from "react-icons/si";
 
 function Skills() {
+  const focusAreas = [
+    {
+      title: "Data Analytics",
+      subtitle: "EDA, Visualization & Business Insights",
+      icon: <FaDatabase />,
+      iconColor: "text-blue-400",
+      bg: "bg-blue-500/10",
+      glow: "hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]",
+    },
+    {
+      title: "Machine Learning",
+      subtitle: "Predictive Models & AI Systems",
+      icon: <FaBrain />,
+      iconColor: "text-purple-400",
+      bg: "bg-purple-500/10",
+      glow: "hover:shadow-[0_0_35px_rgba(168,85,247,0.25)]",
+    },
+    {
+      title: "Development Tools",
+      subtitle: "Projects, Deployment & Version Control",
+      icon: <SiGithub />,
+      iconColor: "text-orange-400",
+      bg: "bg-orange-500/10",
+      glow: "hover:shadow-[0_0_35px_rgba(249,115,22,0.25)]",
+    },
+  ];
+
+  const skills = [
+    {
+      name: "Python",
+      icon: <SiPython />,
+      color: "text-yellow-400",
+    },
+    {
+      name: "NumPy",
+      icon: <SiNumpy />,
+      color: "text-cyan-400",
+    },
+    {
+      name: "Pandas",
+      icon: <SiPandas />,
+      color: "text-indigo-400",
+    },
+    {
+      name: "Scikit-Learn",
+      icon: <SiScikitlearn />,
+      color: "text-orange-400",
+    },
+    {
+      name: "TensorFlow",
+      icon: <SiTensorflow />,
+      color: "text-orange-500",
+    },
+    {
+      name: "Matplotlib",
+      icon: "📊",
+      color: "text-blue-400",
+    },
+    {
+      name: "Seaborn",
+      icon: "📈",
+      color: "text-teal-400",
+    },
+    {
+      name: "MySQL",
+      icon: <SiMysql />,
+      color: "text-blue-500",
+    },
+    {
+      name: "Power BI",
+      icon: <FaChartBar />,
+      color: "text-yellow-500",
+    },
+    {
+      name: "Git",
+      icon: <SiGit />,
+      color: "text-orange-500",
+    },
+    {
+      name: "GitHub",
+      icon: <SiGithub />,
+      color: "text-slate-300",
+    },
+    {
+      name: "Streamlit",
+      icon: <SiStreamlit />,
+      color: "text-red-400",
+    },
+  ];
+
   return (
     <SectionWrapper>
-      <section
-        id="skills"
-        className="py-24 px-6 max-w-7xl mx-auto"
-      >
-        <h2 className="text-center text-5xl font-extrabold mb-4">
-          Technical{" "}
-          <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
-            Arsenal
-          </span>
-        </h2>
+      <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
 
-        <p className="text-center text-slate-400 max-w-2xl mx-auto mb-14">
-          Technologies and tools I use to build intelligent AI,
-          analytics, and data-driven solutions.
-        </p>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillGroups.map((group, index) => (
+        {/* Focus Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
+          {focusAreas.map((item, index) => (
             <motion.div
               key={index}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              transition={{ duration: 0.2 }}
-              className="relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-slate-900/70 backdrop-blur-lg p-7 shadow-[0_0_30px_rgba(34,211,238,0.15)]"
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className={`
+                rounded-2xl
+                border border-slate-700/70
+                bg-slate-900/60
+                p-7
+                transition-all
+                duration-300
+                ${item.glow}
+              `}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl"></div>
-
-              <div className="text-cyan-300 text-4xl mb-5">
-                {group.icon}
+              <div
+                className={`
+                  w-14 h-14
+                  rounded-xl
+                  ${item.bg}
+                  flex items-center justify-center
+                  text-3xl
+                  ${item.iconColor}
+                  mb-5
+                `}
+              >
+                {item.icon}
               </div>
 
-              <h3 className="text-xl font-bold mb-5">
-                {group.title}
+              <h3 className="text-2xl font-bold text-white mb-2">
+                {item.title}
               </h3>
 
-              <div className="flex flex-wrap gap-3">
-                {group.skills.map((skill, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-200 text-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <p className="text-slate-400">
+                {item.subtitle}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Highlight */}
-        <div className="mt-16 grid md:grid-cols-4 gap-6">
-          <div className="glow-card rounded-2xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-cyan-300">15+</h3>
-            <p className="text-slate-300">Technologies</p>
-          </div>
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Technical{" "}
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+              Arsenal
+            </span>
+          </h2>
 
-          <div className="glow-card rounded-2xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-cyan-300">10+</h3>
-            <p className="text-slate-300">Projects</p>
-          </div>
-
-          <div className="glow-card rounded-2xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-cyan-300">1</h3>
-            <p className="text-slate-300">Internship</p>
-          </div>
-
-          <div className="glow-card rounded-2xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-cyan-300">15+</h3>
-            <p className="text-slate-300">Certificates</p>
-          </div>
+          <p className="text-slate-400">
+            Building practical solutions through data, analytics, and machine learning.
+          </p>
         </div>
+
+        {/* Skill Icons */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-5">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -8, scale: 1.03 }}
+              transition={{ duration: 0.2 }}
+              className="group rounded-2xl border border-slate-700/70 bg-slate-900/60 p-6 text-center hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)] transition-all duration-300"
+            >
+              <div
+                className={`text-5xl mb-4 flex justify-center ${skill.color}`}
+              >
+                {skill.icon}
+              </div>
+
+              <p className="font-semibold text-slate-300 group-hover:text-white">
+                {skill.name}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
       </section>
     </SectionWrapper>
   );

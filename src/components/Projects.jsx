@@ -1,206 +1,245 @@
 import SectionWrapper from "./SectionWrapper";
-import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaBookOpen } from "react-icons/fa";
 
 function Projects() {
+  const featuredProject = {
+    title: "TrayamBakam AI",
+    category: "AI Research Project",
+    description:
+      "A multimodal anxiety detection and emotional relief system using facial expression, voice tone, and text analysis.",
+    features: [
+      "Facial emotion analysis",
+      "Voice emotion detection",
+      "Text sentiment analysis",
+      "AI emotional support assistant",
+    ],
+    tech: ["Python", "NLP", "BERT", "Deep Learning", "CLIP"],
+    github: "https://github.com/Sneha-patel16/trayambakam-ai",
+    demo: "#",
+    readme: "https://github.com/Sneha-patel16/trayambakam-ai#readme",
+  };
+
   const projects = [
     {
-      title: "TrayamBakam AI",
-      problem:
-        "Students often struggle with anxiety and stress, while most detection systems rely on only one input source.",
-      description:
-        "A multimodal AI system for anxiety detection using facial expressions, voice tone, and text emotion analysis.",
-      image:
-        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "NLP", "BERT", "Deep Learning", "Emotion AI"],
-      features: [
-        "Facial emotion recognition",
-        "Voice tone analysis",
-        "Text emotion detection",
-        "AI emotional support system",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
-    },
-    {
       title: "Visionix",
-      problem:
-        "Raw datasets require cleaning, preprocessing, dashboards, and insights before they become useful.",
+      category: "Data Analytics Platform",
       description:
-        "An AI-powered analytics and business intelligence platform for automated data cleaning, visualization, and insights.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "Streamlit", "SQL", "Power BI", "EDA"],
-      features: [
-        "Automated data cleaning",
-        "EDA and visualization",
-        "Interactive dashboard",
-        "Insight generation",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
+        "AI-powered analytics and BI platform for data cleaning, EDA, visualization, and dashboard generation.",
+      features: ["Data cleaning", "EDA automation", "Dashboard generation"],
+      tech: ["Python", "Streamlit", "SQL", "Power BI"],
+      github: "https://github.com/Sneha-patel16/visionix",
+      demo: "#",
+      readme: "https://github.com/Sneha-patel16/visionix#readme",
     },
     {
       title: "Salary Prediction System",
-      problem:
-        "Salary estimation helps understand how experience, role, and skills influence compensation.",
+      category: "Machine Learning",
       description:
-        "A machine learning model that predicts salaries based on professional and job-related attributes.",
-      image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "Machine Learning", "Regression", "Streamlit"],
-      features: [
-        "Regression model",
-        "Feature preprocessing",
-        "Interactive prediction UI",
-        "Model evaluation",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
+        "ML model that predicts salary based on professional and technical attributes.",
+      features: ["Regression model", "Prediction UI", "Model evaluation"],
+      tech: ["Python", "ML", "Pandas", "Streamlit"],
+      github: "https://github.com/Sneha-patel16/salary-prediction",
+      demo: "https://salary-prediction-model-tc4gj8crzj.streamlit.app/",
+      readme: "https://github.com/Sneha-patel16/salary-prediction#readme",
     },
     {
       title: "IMDb India Movie Analysis",
-      problem:
-        "Movie datasets contain hidden trends related to ratings, genres, actors, and audience preferences.",
+      category: "Exploratory Data Analysis",
       description:
-        "A data analysis project exploring IMDb India movie data to identify meaningful entertainment industry insights.",
-      image:
-        "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA"],
-      features: [
-        "Data cleaning",
-        "Genre-based analysis",
-        "Rating trends",
-        "Visual insights",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
+        "EDA project analyzing Indian movie trends, ratings, genres, and insights using IMDb data.",
+      features: ["Data cleaning", "Trend analysis", "Visual insights"],
+      tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
+      github: "https://github.com/Sneha-patel16/imdb-india-analysis",
+      demo: "#",
+      readme: "https://github.com/Sneha-patel16/imdb-india-analysis#readme",
     },
     {
-      title: "Titanic Survival Prediction",
-      problem:
-        "Passenger survival can be predicted using demographic and travel-related features.",
+      title: "AI Chatbot",
+      category: "NLP Project",
       description:
-        "A machine learning classification project predicting Titanic passenger survival using structured data.",
-      image:
-        "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "Pandas", "Scikit-Learn", "Classification"],
-      features: [
-        "Data preprocessing",
-        "Feature engineering",
-        "Classification model",
-        "Accuracy evaluation",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
-    },
-    {
-      title: "YouTube Data Analysis",
-      problem:
-        "YouTube data can reveal trends in audience engagement, video performance, and content strategy.",
-      description:
-        "A data analytics project analyzing YouTube video metrics to understand views, likes, comments, and engagement patterns.",
-      image:
-        "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
-      tech: ["Python", "Pandas", "EDA", "Data Visualization"],
-      features: [
-        "Video performance analysis",
-        "Engagement trend analysis",
-        "Data visualization",
-        "Insight generation",
-      ],
-      github: "https://github.com/Sneha-patel16",
-      live: "#",
+        "Conversational chatbot built using NLP concepts to generate intelligent responses.",
+      features: ["NLP processing", "User interaction", "Response generation"],
+      tech: ["Python", "NLP", "AI"],
+      github: "https://github.com/Sneha-patel16/ai-chatbot",
+      demo: "#",
+      readme: "https://github.com/Sneha-patel16/ai-chatbot#readme",
     },
   ];
 
   return (
     <SectionWrapper>
       <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-        <p className="text-cyan-400 text-center font-semibold mb-3">
-          Selected Work
+        <h2 className="text-center text-5xl font-extrabold mb-4">
+          Featured{" "}
+          <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+            Projects
+          </span>
+        </h2>
+
+        <p className="text-center text-slate-400 max-w-2xl mx-auto mb-14">
+          Practical AI, data science, and analytics projects focused on solving
+          real-world problems.
         </p>
 
-        <h2 className="section-title blue-gradient">Featured Projects</h2>
+        {/* Featured Project */}
+        <motion.div
+          whileHover={{ y: -8 }}
+          className="mb-12 overflow-hidden rounded-3xl border border-cyan-500/25 bg-slate-900/80 backdrop-blur-xl shadow-[0_0_45px_rgba(34,211,238,0.15)]"
+        >
+          <div className="grid lg:grid-cols-2 gap-0">
+            <div className="p-8 md:p-10">
+              <span className="inline-block px-4 py-2 mb-5 rounded-full bg-cyan-500/10 text-cyan-300 text-sm font-semibold">
+                Featured Project • {featuredProject.category}
+              </span>
 
-        <p className="text-slate-400 text-center max-w-3xl mx-auto mb-14">
-          Practical AI, Machine Learning, and Data Analytics projects focused on
-          real-world problem solving and data-driven insights.
-        </p>
+              <h3 className="text-4xl font-extrabold mb-4 text-white">
+                {featuredProject.title}
+              </h3>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+              <p className="text-slate-300 leading-7 mb-6">
+                {featuredProject.description}
+              </p>
+
+              <ul className="space-y-2 mb-6">
+                {featuredProject.features.map((feature, index) => (
+                  <li key={index} className="text-slate-300">
+                    <span className="text-cyan-300">✓</span> {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mb-7">
+                {featuredProject.tech.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 rounded-full bg-slate-800 border border-cyan-500/20 text-cyan-200 text-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={featuredProject.github}
+                  target="_blank"
+                  className="px-5 py-3 bg-cyan-400 text-slate-950 rounded-xl font-bold inline-flex items-center gap-2 hover:bg-cyan-300 transition"
+                >
+                  <FaGithub /> GitHub
+                </a>
+
+                <a
+                  href={featuredProject.demo}
+                  target="_blank"
+                  className="px-5 py-3 border border-slate-600 rounded-xl font-bold inline-flex items-center gap-2 hover:border-cyan-400 transition"
+                >
+                  <FaExternalLinkAlt /> Demo
+                </a>
+
+                <a
+                  href={featuredProject.readme}
+                  target="_blank"
+                  className="px-5 py-3 border border-slate-600 rounded-xl font-bold inline-flex items-center gap-2 hover:border-cyan-400 transition"
+                >
+                  <FaBookOpen /> Details
+                </a>
+              </div>
+            </div>
+
+            <div className="min-h-[320px] bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-slate-950 flex items-center justify-center p-8">
+              <div className="text-center">
+                <div className="text-6xl mb-5">🧠</div>
+                <h4 className="text-2xl font-bold text-cyan-300">
+                  Multimodal AI System
+                </h4>
+                <p className="text-slate-300 mt-3">
+                  Face + Voice + Text Analysis
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Other Projects */}
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="glow-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300"
+              whileHover={{ y: -10, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+              className="group overflow-hidden rounded-3xl border border-cyan-500/20 bg-slate-900/80 backdrop-blur-xl shadow-[0_0_30px_rgba(34,211,238,0.12)] hover:shadow-[0_0_45px_rgba(34,211,238,0.25)] transition-all duration-500"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-52 object-cover opacity-90"
-              />
+              <div className="h-44 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-slate-950 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-5xl mb-3">
+                    {index === 0 ? "📊" : index === 1 ? "🤖" : index === 2 ? "🎬" : "💬"}
+                  </div>
+                  <p className="text-cyan-300 font-semibold">
+                    {project.category}
+                  </p>
+                </div>
+              </div>
 
               <div className="p-7">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-4">
+                <span className="inline-block px-3 py-1 mb-4 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold">
+                  {project.category}
+                </span>
+
+                <h3 className="text-2xl font-bold mb-3 text-white">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-300 mb-4 text-sm leading-7">
-                  <span className="font-semibold text-white">Problem: </span>
-                  {project.problem}
-                </p>
-
-                <p className="text-slate-400 mb-6 text-sm leading-7">
+                <p className="text-slate-300 mb-5 leading-7">
                   {project.description}
                 </p>
 
-                <div className="mb-6">
-                  <h4 className="font-semibold mb-3 text-white">
-                    Key Features
-                  </h4>
+                <ul className="space-y-2 mb-5">
+                  {project.features.map((feature, idx) => (
+                    <li key={idx} className="text-slate-300 text-sm">
+                      <span className="text-cyan-300">✓</span> {feature}
+                    </li>
+                  ))}
+                </ul>
 
-                  <ul className="grid sm:grid-cols-2 gap-2 text-slate-300 text-sm">
-                    {project.features.map((feature, idx) => (
-                      <li key={idx}>✓ {feature}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-7">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs"
+                      className="px-3 py-1 rounded-full bg-slate-800 border border-cyan-500/20 text-cyan-200 text-sm"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3">
                   <a
                     href={project.github}
                     target="_blank"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 text-black text-sm font-semibold hover:bg-cyan-400 transition"
+                    className="px-4 py-2 bg-cyan-400 text-slate-950 rounded-lg font-bold inline-flex items-center gap-2 hover:bg-cyan-300 transition"
                   >
-                    <FaGithub />
-                    GitHub
+                    <FaGithub /> GitHub
                   </a>
 
                   <a
-                    href={project.live}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-700 text-sm hover:border-cyan-400 transition"
+                    href={project.demo}
+                    target="_blank"
+                    className="px-4 py-2 border border-slate-600 rounded-lg font-bold inline-flex items-center gap-2 hover:border-cyan-400 transition"
                   >
-                    <FaExternalLinkAlt />
-                    Live Demo
+                    <FaExternalLinkAlt /> Demo
                   </a>
 
-                  <button className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-700 text-sm hover:border-cyan-400 transition">
-                    <FaInfoCircle />
-                    Details
-                  </button>
+                  <a
+                    href={project.readme}
+                    target="_blank"
+                    className="px-4 py-2 border border-slate-600 rounded-lg font-bold inline-flex items-center gap-2 hover:border-cyan-400 transition"
+                  >
+                    <FaBookOpen /> Details
+                  </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
