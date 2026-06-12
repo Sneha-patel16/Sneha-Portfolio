@@ -73,3 +73,96 @@ z-index:-1;
   transform: translateY(-8px);
   box-shadow: 0 0 35px rgba(34, 211, 238, 0.25);
 }
+.hero-bg {
+  background:
+    radial-gradient(circle at 12% 22%, rgba(34, 211, 238, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 75%, rgba(59, 130, 246, 0.18), transparent 30%),
+    linear-gradient(135deg, #020617 0%, #04142d 45%, #020617 100%);
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  background: #22d3ee;
+  top: -220px;
+  left: -180px;
+  opacity: 0.12;
+  filter: blur(160px);
+  border-radius: 9999px;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  background: #3b82f6;
+  right: -240px;
+  bottom: -220px;
+  opacity: 0.11;
+  filter: blur(170px);
+  border-radius: 9999px;
+}
+
+.mesh-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: 70px 70px;
+  opacity: 0.65;
+}
+
+.data-wave {
+  position: absolute;
+  left: -10%;
+  bottom: -18%;
+  width: 120%;
+  height: 62%;
+  opacity: 0.28;
+  background:
+    radial-gradient(circle at 18% 64%, rgba(34,211,238,0.9) 0 3px, transparent 4px),
+    radial-gradient(circle at 30% 50%, rgba(59,130,246,0.9) 0 3px, transparent 4px),
+    radial-gradient(circle at 45% 58%, rgba(34,211,238,0.8) 0 3px, transparent 4px),
+    radial-gradient(circle at 62% 44%, rgba(59,130,246,0.8) 0 3px, transparent 4px),
+    radial-gradient(circle at 78% 56%, rgba(34,211,238,0.8) 0 3px, transparent 4px),
+    linear-gradient(18deg, transparent 35%, rgba(34,211,238,0.45) 36%, transparent 37%),
+    linear-gradient(10deg, transparent 40%, rgba(59,130,246,0.35) 41%, transparent 42%),
+    linear-gradient(-8deg, transparent 45%, rgba(34,211,238,0.3) 46%, transparent 47%);
+  filter: blur(0.2px);
+}
+
+.network-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background:
+    linear-gradient(25deg, transparent 18%, rgba(34,211,238,0.22) 18.2%, transparent 18.6%),
+    linear-gradient(-18deg, transparent 54%, rgba(59,130,246,0.2) 54.2%, transparent 54.6%),
+    linear-gradient(8deg, transparent 72%, rgba(34,211,238,0.18) 72.2%, transparent 72.6%);
+}
+
+.network-lines::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  top: 18%;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  border-radius: 50%;
+}
+
+.network-lines::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 16%;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 50%;
+}

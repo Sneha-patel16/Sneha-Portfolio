@@ -55,15 +55,15 @@ function Projects() {
       readme: "https://github.com/Sneha-patel16/imdb-india-analysis#readme",
     },
     {
-      title: "AI Chatbot",
-      category: "NLP Project",
+      title: "Titanic Survival Prediction",
+      category: "Machine Learning",
       description:
-        "Conversational chatbot built using NLP concepts to generate intelligent responses.",
-      features: ["NLP processing", "User interaction", "Response generation"],
-      tech: ["Python", "NLP", "AI"],
-      github: "https://github.com/Sneha-patel16/ai-chatbot",
+        "A predictive machine learning model that determines passenger survival probability on the Titanic dataset using classification techniques.",
+      features: ["Data preprocessing", "Feature engineering", "Classification model", "Prediction dashboard"],
+      tech: ["Python", "Pandas", "Streamlit", "Scikit-learn"],
+      github: "https://github.com/Sneha-patel16/Titanic-Survival-Analysis",
       demo: "#",
-      readme: "https://github.com/Sneha-patel16/ai-chatbot#readme",
+      readme: "https://github.com/Sneha-patel16/Titanic-Survival-Analysis/blob/main/README.md",
     },
   ];
 

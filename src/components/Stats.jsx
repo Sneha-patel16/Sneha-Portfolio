@@ -1,81 +1,67 @@
-import { useEffect, useState } from "react";
+import SectionWrapper from "./SectionWrapper";
 import { FaProjectDiagram, FaCertificate, FaCode, FaBrain } from "react-icons/fa";
-
-function Counter({ end }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const duration = 1500;
-    const increment = end / (duration / 20);
-
-    const timer = setInterval(() => {
-      start += increment;
-
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 20);
-
-    return () => clearInterval(timer);
-  }, [end]);
-
-  return <>{count}</>;
-}
 
 function Stats() {
   const stats = [
     {
       icon: <FaProjectDiagram />,
-      value: 10,
-      suffix: "+",
+      number: "10+",
       label: "Projects",
     },
     {
       icon: <FaCertificate />,
-      value: 15,
-      suffix: "+",
+      number: "15+",
       label: "Certificates",
     },
     {
       icon: <FaCode />,
-      value: 200,
-      suffix: "+",
+      number: "200+",
       label: "Coding Hours",
     },
     {
       icon: <FaBrain />,
-      value: 5,
-      suffix: "+",
+      number: "5+",
       label: "AI Solutions",
     },
   ];
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-4 gap-6">
-        {stats.map((item, index) => (
-          <div
-            key={index}
-            className="glow-card rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300"
-          >
-            <div className="text-4xl text-cyan-400 mb-4 flex justify-center">
-              {item.icon}
+    <SectionWrapper>
+      <section className="py-12 px-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((item, index) => (
+            <div
+              key={index}
+              className="
+                rounded-2xl
+                border border-slate-700/70
+                bg-slate-900/60
+                backdrop-blur-xl
+                p-6
+                text-center
+                hover:-translate-y-2
+                hover:border-cyan-400/40
+                hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]
+                transition-all
+                duration-300
+              "
+            >
+              <div className="text-cyan-300 text-3xl flex justify-center mb-4">
+                {item.icon}
+              </div>
+
+              <h3 className="text-4xl font-extrabold text-white">
+                {item.number}
+              </h3>
+
+              <p className="text-slate-400 mt-2">
+                {item.label}
+              </p>
             </div>
-
-            <h3 className="text-3xl font-bold text-white">
-              <Counter end={item.value} />
-              {item.suffix}
-            </h3>
-
-            <p className="text-slate-400 mt-2">{item.label}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </SectionWrapper>
   );
 }
 
